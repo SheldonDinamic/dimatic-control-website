@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency AC Repair Union NJ | Beat the Heat | Dimatic Control</title>
+    <meta name="description" content="AC not working? Same-day emergency AC repair in Union & Essex County NJ. Beat the heat with Dimatic Control's 24/7 cooling experts. Call (908) 249-9701 now!">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3c72;
+            --secondary-blue: #2a5298;
+            --accent-orange: #ff6b35;
+            --accent-yellow: #f7931e;
+            --summer-cyan: #00bcd4;
+            --summer-blue: #0288d1;
+            --dark: #0a0a0a;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: #0a0a0a;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Summer Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #0a0a0a, #0288d1, #00bcd4, #0a0a0a);
+            background-size: 400% 400%;
+            animation: summerShift 12s ease infinite;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: linear-gradient(45deg, var(--summer-cyan), var(--summer-blue));
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 65%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 25%;
+            left: 25%;
+            animation-delay: -10s;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: var(--glass);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 188, 212, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--summer-cyan);
+        }
+
+        .emergency-btn {
+            background: linear-gradient(45deg, #ff4444, var(--accent-orange));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .emergency-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 68, 68, 0.5);
+            animation: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .summer-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--summer-cyan), var(--summer-blue));
+            padding: 12px 25px;
+            border-radius: 50px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: slideInDown 1s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .hero h1 .cooling-text {
+            background: linear-gradient(45deg, var(--summer-cyan), var(--summer-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .urgency-text {
+            font-size: 1.6rem;
+            color: #ff4444;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: slideInUp 1s ease-out 0.5s both;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+            line-height: 1.8;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.9s both;
+        }
+
+        .btn {
+            padding: 20px 45px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-emergency {
+            background: linear-gradient(45deg, #ff4444, var(--accent-orange));
+            color: white;
+            box-shadow: 0 15px 40px rgba(255, 68, 68, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-emergency:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(255, 68, 68, 0.6);
+            animation: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, var(--summer-cyan), var(--summer-blue));
+            color: white;
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0, 188, 212, 0.6);
+        }
+
+        /* AC Problems Section */
+        .problems-section {
+            padding: 150px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff4444, var(--accent-orange));
+            padding: 12px 25px;
+            border-radius: 50px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff4444, var(--accent-orange));
+        }
+
+        .problem-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 68, 68, 0.3);
+        }
+
+        .problem-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff4444, var(--accent-orange));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 30px rgba(255, 68, 68, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover .problem-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .problem-card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .problem-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .solution-tag {
+            background: linear-gradient(45deg, var(--summer-cyan), var(--summer-blue));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Emergency CTA */
+        .cta-section {
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(3rem, 5vw, 4rem);
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+        }
+
+        .summer-emergency-banner {
+            background: linear-gradient(45deg, #ff4444, var(--accent-orange));
+            padding: 30px 50px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 40px 0;
+            animation: pulse 2s infinite;
+            box-shadow: 0 25px 50px rgba(255, 68, 68, 0.4);
+        }
+
+        .summer-emergency-banner h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .summer-emergency-banner p {
+            color: white;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .review-highlight {
+            display: flex;
+            justify-content: center;
+        }
+
+        .review-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .review-stars {
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .review-card blockquote {
+            color: white;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .review-source {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Orbitron', monospace;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--summer-cyan);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes summerShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(-10px) rotate(240deg); }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Scroll-triggered animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="DimaticControl.png" alt="Dimatic Control LLC Logo" class="logo-image">
+                    <div class="logo-text">DIMATIC CONTROL</div>
+                </div>
+                <div class="nav-links">
+                    <a href="Dinamic Control.html">All Services</a>
+                    <a href="tel:+19082499701" class="emergency-btn">🚨 EMERGENCY AC REPAIR</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="summer-badge">🌡️ AC Emergency? We're Here 24/7!</div>
+                <div class="urgency-text">AC NOT WORKING? DON'T SWEAT IT!</div>
+                <h1>Beat the <span class="cooling-text">Heat</span> Today</h1>
+                <p>Same-day emergency AC repair across Essex & Union County. When your air conditioning fails, we respond fast with fully equipped vehicles and expert technicians ready to restore your cool comfort.</p>
+                <div class="hero-buttons">
+                    <a href="tel:+19082499701" class="btn btn-emergency">🚨 CALL NOW: (908) 249-9701</a>
+                    <a href="tel:+19086939345" class="btn btn-secondary">❄️ Cool Down Fast: (908) 693-9345</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AC Problems Section -->
+    <section class="problems-section scroll-reveal">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">🔥 Summer AC Problems</div>
+                <h2 class="section-title">We Fix It All - Fast!</h2>
+                <p class="section-subtitle">From complete breakdowns to poor cooling - our expert technicians diagnose and repair any AC issue same-day</p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-icon">🚫</div>
+                    <h3>AC Won't Turn On</h3>
+                    <p>Electrical issues, blown fuses, or thermostat problems keeping your AC from starting? We diagnose and fix it fast.</p>
+                    <div class="solution-tag">Same-Day Fix</div>
+                </div>
+                
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-icon">🌡️</div>
+                    <h3>AC Not Cooling</h3>
+                    <p>Blowing warm air? Low refrigerant, dirty coils, or compressor issues - we'll have you cool again today.</p>
+                    <div class="solution-tag">Emergency Repair</div>
+                </div>
+                
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-icon">💧</div>
+                    <h3>AC Leaking Water</h3>
+                    <p>Water damage from AC leaks? Clogged drains or frozen coils - we stop leaks and prevent damage.</p>
+                    <div class="solution-tag">Rapid Response</div>
+                </div>
+                
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-icon">🔊</div>
+                    <h3>Strange Noises</h3>
+                    <p>Grinding, squealing, or banging sounds? Motor problems or loose parts - we silence AC noise fast.</p>
+                    <div class="solution-tag">Expert Diagnosis</div>
+                </div>
+                
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-icon">💨</div>
+                    <h3>Weak Airflow</h3>
+                    <p>Barely any air coming out? Dirty filters, duct problems, or blower issues - we restore full airflow.</p>
+                    <div class="solution-tag">Airflow Experts</div>
+                </div>
+                
+                <div class="problem-card scroll-reveal">
+                    <div class="problem-icon">⚡</div>
+                    <h3>High Electric Bills</h3>
+                    <p>AC running constantly? Inefficient operation wastes money - we optimize for maximum efficiency.</p>
+                    <div class="solution-tag">Energy Savings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews-section scroll-reveal">
+        <div class="container">
+            <div class="review-highlight">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <blockquote>"Our AC died on the hottest day of summer and Dimatic Control came out same day! Very professional and got us cool again fast. Prices were very reasonable too!"</blockquote>
+                    <div class="review-source">- Satisfied Customer, Union County</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Don't Suffer in the Heat</h2>
+                <p>Every minute without AC is too long. Our emergency technicians are standing by with fully stocked vehicles ready to restore your cool comfort today.</p>
+                
+                <div class="summer-emergency-banner">
+                    <h3>🌡️ BEAT THE HEAT HOTLINE</h3>
+                    <p>Call (908) 249-9701 - Emergency AC Repair Now!</p>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="tel:+19082499701" class="btn btn-emergency">🚨 Emergency AC Repair</a>
+                    <a href="tel:+19086939345" class="btn btn-secondary">❄️ Cool Down Fast</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Emergency AC Service</h3>
+                    <p>📞 <a href="tel:+19082499701">(908) 249-9701</a></p>
+                    <p>📞 <a href="tel:+19086939345">(908) 693-9345</a></p>
+                    <p>📍 1992 Morris Ave. Ste 241, Union, NJ 07083</p>
+                    <p>🌎 Essex & Union Counties</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Summer AC Services</h3>
+                    <p>Emergency AC Repair</p>
+                    <p>Same-Day Service</p>
+                    <p>AC Tune-Ups</p>
+                    <p>Refrigerant Recharge</p>
+                    <p>Filter Replacement</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Service Promise</h3>
+                    <p>⭐ 4.8/5 Star Rating</p>
+                    <p>🛡️ Licensed & Insured</p>
+                    <p>⚡ Same-Day Service</p>
+                    <p>💯 Satisfaction Guaranteed</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dimatic Control LLC. Emergency AC Repair - Essex & Union County NJ | <a href="Dinamic Control.html">View All Services</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header effects
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.15)';
+                header.style.backdropFilter = 'blur(25px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.style.backdropFilter = 'blur(20px)';
+            }
+        });
+
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Parallax floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
