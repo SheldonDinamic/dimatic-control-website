@@ -570,19 +570,205 @@
             50% { transform: scale(1.05); }
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--summer-cyan);
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .hero {
+                padding-top: 120px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .header-content {
+                padding: 15px 0;
+            }
+            
+            .logo-image {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-text {
+                font-size: 16px;
+            }
+            
+            .hero {
+                padding-top: 100px;
+                min-height: 90vh;
+            }
+            
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+                margin-bottom: 20px;
+            }
+            
+            .urgency-text {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 40px;
+            }
+            
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                padding: 16px 35px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: clamp(2rem, 4vw, 3rem);
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
             }
             
             .problems-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
             
-            .nav-links {
-                display: none;
+            .problem-card {
+                padding: 30px 20px;
+            }
+            
+            .review-card {
+                padding: 25px 15px;
+            }
+            
+            .cta-section h2 {
+                font-size: clamp(2rem, 4vw, 3rem);
+            }
+            
+            .summer-emergency-banner {
+                padding: 20px 30px;
+                margin: 30px 0;
+            }
+            
+            .summer-emergency-banner h3 {
+                font-size: 1.3rem;
+            }
+            
+            .summer-emergency-banner p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            /* Mobile padding adjustments */
+            .problems-section,
+            .reviews-section,
+            .cta-section {
+                padding: 80px 0;
+            }
+        }
+
+        /* Small phone adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+            
+            .urgency-text {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 14px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .problem-card {
+                padding: 25px 15px;
+            }
+            
+            .summer-emergency-banner {
+                padding: 15px 20px;
             }
         }
 
@@ -617,12 +803,20 @@
                     <div class="logo-text">DIMATIC CONTROL</div>
                 </div>
                 <div class="nav-links">
-                    <a href="Dinamic Control.html">All Services</a>
+                    <a href="index.html">All Services</a>
                     <a href="tel:+19082499701" class="emergency-btn">🚨 EMERGENCY AC REPAIR</a>
                 </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">✕</button>
+        <a href="index.html" onclick="toggleMobileMenu()">All Services</a>
+        <a href="tel:+19082499701" class="emergency-btn">🚨 EMERGENCY AC REPAIR</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -759,12 +953,19 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Dimatic Control LLC. Emergency AC Repair - Essex & Union County NJ | <a href="Dinamic Control.html">View All Services</a></p>
+                <p>&copy; 2025 Dimatic Control LLC. Emergency AC Repair - Essex & Union County NJ | <a href="index.html">View All Services</a></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
